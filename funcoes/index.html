@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+ 
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <h1>Conversor de Moedas</h1>
+ 
+        <form action="./pags/atividadeFuncoes.php" method="POST">
+            <div class="form-group">
+                <label for="valor">Valor em Real (R$)</label>
+                <input type="text" id="valor" name="valor" placeholder="Ex: 150,50" required>
+                <link rel="stylesheet" href="./css/estilo.css">
+            </div>
+ 
+            <div class="form-group">
+                <label for="moeda">Converter para:</label>
+                <select id="moeda" name="moeda" required>
+                    <option value="">-- Selecione uma moeda --</option>
+                    <option value="USD">Dólar Americano (cotação fixa)</option>
+                    <option value="EUR">Euro (cotação fixa)</option>
+                    <option value="GBP">Libra Esterlina (cotação em tempo real)</option>
+                </select>
+            </div>
+ 
+            <button type="submit">Converter</button>
+        </form>
+ 
+        <div class="resultado">
+ 
+        </div>
+    </div>
+ 
+</body>
+ 
+</html>
