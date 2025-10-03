@@ -7,7 +7,6 @@ body {
     height: 100vh;
     margin: 0;
 }
-
 .container {
     background-color: #fff;
     padding: 25px 40px;
@@ -16,24 +15,24 @@ body {
     width: 100%;
     max-width: 400px;
 }
-
+ 
 h1 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
 }
-
+ 
 .form-group {
     margin-bottom: 15px;
 }
-
+ 
 label {
     display: block;
     margin-bottom: 5px;
     color: #555;
     font-weight: bold;
 }
-
+ 
 input[type="text"],
 select {
     width: 100%;
@@ -41,9 +40,8 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
- 
 }
-
+ 
 button {
     width: 100%;
     padding: 12px;
@@ -55,15 +53,15 @@ button {
     font-size: 16px;
     font-weight: bold;
 }
-
+ 
 button:hover {
     background-color: #0056b3;
 }
-
+ 
 .resultado {
     margin-top: 20px;
 }
-
+ 
 .mensagem-sucesso,
 .mensagem-erro {
     padding: 15px;
@@ -71,21 +69,41 @@ button:hover {
     text-align: center;
     font-size: 1.1em;
 }
-
+ 
 .mensagem-sucesso {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
-
+ 
 .mensagem-erro {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
-
+ 
 small {
     font-size: 0.8em;
     color: #666;
 }
+ 
+.container {
+    text-align: center;
+}
+ 
+.link-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+ 
+.link-voltar:hover {
+    background-color: #5a6268;
+}
+ 
  
