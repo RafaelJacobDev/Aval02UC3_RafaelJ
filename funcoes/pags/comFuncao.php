@@ -24,17 +24,33 @@ function validarEntrada($moeda, $real)
     }
 }
 
-function converterMoeda($moeda, $real) {
-    $taxas = [
-        "USD" => 5.34,
-        "EUR" => 6.27,
-        "GBP" => 7.20
-    ];
+function APImoeda($moeda){
+    
+$url = "http://economia.awesomeapi.com.br/json/last/{$moeda}-BRL";
 
-    if (isset($taxas[$moeda])) {
-        return $real / $taxas[$moeda];
-    }
-    return false; 
+$options = [
+    "http" => [
+        "method" => "GET",
+        "header" => "Content-Type: application/json"
+    ]
+];
+$context  = stream_context_create($options);
+$response = file_get_contents($url, false, $context);
+var_dump($response);
+if ($response == false) {
+    echo "Erro ao acessar a API";
+    exit;
+}
+$dados = json_decode($response, true);
+$dados[$moeda."BRL"]["bid"];
+$valormoeda=number_format($dados, 2);
+return$valormoeda;
+}
+
+function converterMoeda($moeda, $real) {
+    $taxa=APImoeda($moeda);
+
+    return $real/$taxa;
 }
 
 function mensagem($valorFinal, $simbolos, $moeda)
@@ -50,6 +66,7 @@ if (validarEntrada($moeda, $real) == true) {
 } else {
     header('location: ../index.html');
 }
+APImoeda($moeda);
 $valorFinal = "";
 $mensagem = "";
 $valorFinal = number_format($valorFinal, 2, ',', '.');
