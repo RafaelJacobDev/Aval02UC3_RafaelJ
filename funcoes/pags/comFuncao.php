@@ -15,14 +15,18 @@ function validarReal($real)
         return true;
     }
 }
-
-function validarEntrada($moeda,$real)
+function validarEntrada($moeda, $real)
 {
     if (validarMoeda($moeda) == false || validarReal($real) == false) {
         return false;
-    }else {
+    } else {
         return true;
     }
+}
+
+function mensagem($valorFinal, $simbolos, $moeda)
+{
+    return "O valor convertido é de " . $valorFinal . $simbolos[$moeda];
 }
 
 
@@ -47,10 +51,7 @@ if ($moeda == "USD") {
 }
 $valorFinal = number_format($valorFinal, 2, ',', '.');
 $simbolos = ['USD' => 'US$', 'EUR' => '€', 'GBP' => '£'];
-
-$mensagem = "O valor convertido é de " . $valorFinal . $simbolos[$moeda];
-
-
+$mensagem = mensagem($valorFinal, $simbolos, $moeda);
 
 
 ?>
