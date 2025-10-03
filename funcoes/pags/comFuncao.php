@@ -24,6 +24,19 @@ function validarEntrada($moeda, $real)
     }
 }
 
+function converterMoeda($moeda, $real) {
+    $taxas = [
+        "USD" => 5.34,
+        "EUR" => 6.27,
+        "GBP" => 7.20
+    ];
+
+    if (isset($taxas[$moeda])) {
+        return $real / $taxas[$moeda];
+    }
+    return false; 
+}
+
 function mensagem($valorFinal, $simbolos, $moeda)
 {
     return "O valor convertido é de " . $valorFinal . $simbolos[$moeda];
@@ -38,17 +51,7 @@ if (validarEntrada($moeda, $real) == true) {
     header('location: ../index.html');
 }
 $valorFinal = "";
-
 $mensagem = "";
-
-
-if ($moeda == "USD") {
-    $valorFinal = $real / 5.34;
-} else if ($moeda == "EUR") {
-    $valorFinal = $real / 6.27;
-} else if ($moeda == "GBP") {
-    $valorFinal = $real / 7.20;
-}
 $valorFinal = number_format($valorFinal, 2, ',', '.');
 $simbolos = ['USD' => 'US$', 'EUR' => '€', 'GBP' => '£'];
 $mensagem = mensagem($valorFinal, $simbolos, $moeda);
